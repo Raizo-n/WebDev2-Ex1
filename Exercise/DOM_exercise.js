@@ -9,9 +9,7 @@
 window.onload = function() {
   check = (word) => {
     if (word.length > 8) {
-      word = '<span style="background:yellow;">' + word + '</span>';
-    } else {
-      word;
+      return word = '<span style="background:yellow;">' + word + '</span>';
     }
     return word;
   }
@@ -29,9 +27,9 @@ window.onload = function() {
   (http://officeipsum.com/)
 */
 
-const link = document.createElement('a');
-link.href = 'http://officeipsum.com/';
-link.innerText = 'Click';
+const link = document.createElement('a'); // <a></a>
+link.href = 'http://officeipsum.com/';  // <a href=""></a>
+link.innerText = 'Click'; // <a href=""> Click</a>
 document.body.appendChild(link);
 
 
@@ -44,8 +42,8 @@ document.body.appendChild(link);
 
 const paragraph = document.querySelector('p');
 paragraph.innerHTML = paragraph.innerHTML
-  .split('/\.[^.|<]/')
-  .join('.</p><p>') + '</p>';
+  .split('.')
+  .join('</p><p>');
 
 /*
   Exercise 04
@@ -54,7 +52,7 @@ paragraph.innerHTML = paragraph.innerHTML
   You can assume that all words are separated by one singular whitespace.
 */
 
- const wordCount = paragraph.innerText.split('').length;
+ const wordCount = paragraph.innerText.split(' ').length;
  const wordCountElem = document.createElement('div');
  wordCountElem.innerText = `${wordCount} words`;
  document.body.insertBefore(wordCountElem, paragraph);
@@ -72,3 +70,8 @@ Array.from(document.querySelectorAll('p'))
       .replace(/\?/g, '🤔')
       .replace(/\!/g, '😲');
   })
+
+  // // another solution
+  // paragraph.innerHTML = paragraph.innerHTML
+  //   .replaceAll('?', '🤔')
+  //   .replaceAll('!', '😲');
