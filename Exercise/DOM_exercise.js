@@ -6,18 +6,11 @@
   Highlight all of the words over 8 characters long in the paragraph text (with a yellow background for example)
 */
 
-window.onload = function() {
-  check = (word) => {
-    if (word.length > 8) {
-      return word = '<span style="background:yellow;">' + word + '</span>';
-    }
-    return word;
-  }
 
   const str = document.querySelector("p").innerText;
-  const newt = str.split(' ').map(check).join(' ');
+  const newt = str.split(' ').map(word => word.length > 8 ? `<span style="background-color: yellow">${word}</span>` : word).join(' ');
   document.querySelector("p").innerHTML = newt;
-}
+
 
 
 /*
